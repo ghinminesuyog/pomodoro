@@ -57,6 +57,8 @@ export class AppComponent implements OnInit {
     this.mode = toMode;
     this.titleService.setTitle(this.mode);
 
+    this.stopTimer();
+
     this.favIcon.href = '/assets/' + this.mode + '.svg'
 
     this.getTotalSeconds();
@@ -78,11 +80,32 @@ export class AppComponent implements OnInit {
         if (this.totalSeconds <= 0) {
           clearInterval(this.timerId);
           this.setStatus(Status.STOP);
-          this.displayTime()
+          this.displayTime();
         }
         this.displayTime();
         this.totalSeconds -= 1;
+        this.updateProgBar(this.totalSeconds);
       }.bind(this), 1000);
+  }
+
+  updateProgBar(currValue) {
+    console.log('Curr val: ', currValue)
+    const progBar = document.getElementById('prog-bar');
+
+    var totalValue = 0;
+    if (this.mode == 'Pomodoro') {
+      totalValue = 25 * 60;
+    }
+    else if (this.mode == "Short Break") {
+      totalValue = 5 * 60;
+    }
+    else if (this.mode == "Long Break") {
+      totalValue = 15 * 60;
+    }
+
+    const percent = currValue / totalValue * 100;
+    console.log('Percent value is: ', percent)
+    progBar.style.width = percent.toString() + '%'
   }
 
 
@@ -138,7 +161,8 @@ export class AppComponent implements OnInit {
       this.toggleState();
       clearInterval(this.timerId);
       this.setStatus(Status.STOP);
-      this.displayTime()
+      this.displayTime();
+      this.updateProgBar(this.getTotalSeconds())
     }
 
   }

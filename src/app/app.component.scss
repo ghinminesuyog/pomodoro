@@ -30,7 +30,17 @@
             font-size: 6em;
             font-family: "Fredoka One", cursive;
         }
-
+        .prog-bar-container {
+            margin: 0 30px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            #prog-bar {
+                height: 12px;
+                background-color: white;
+                border-radius: 10px;
+                transition: ease;
+            }
+        }
         .button-row {
             display: flex;
             flex-direction: column;
@@ -85,7 +95,6 @@
         margin: auto;
         .title {
             font-size: 1.1em;
-            color: #f05b56;
             font-weight: bold;
             display: block;
             text-transform: capitalize;

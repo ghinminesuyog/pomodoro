@@ -27,6 +27,9 @@
       {{strMinutes}} : {{strSeconds}}
 
     </div>
+    <div class="prog-bar-container">
+      <div id="prog-bar"></div>
+    </div>
 
     <div class="button-row">
       <div class="button start" (click)="startTimer()" [@buttonState]="!isRunning"
@@ -43,7 +46,8 @@
   </div>
 
   <div id="help">
-    <span class="title">
+    <span class="title"
+      [ngClass]="{'pomo-start' : mode == 'Pomodoro', 'long-start':mode=='Long Break','short-start':mode=='Short Break'}">
       What is the pomodoro technique?
     </span>
     <span class="answer">
@@ -52,37 +56,51 @@
       breaks. Each interval is known as a pomodoro, from the Italian word for 'tomato', after the tomato-shaped kitchen
       timer that Cirillo used as a university student.
     </span>
-    <span class="title">
+    <span class="title"
+      [ngClass]="{'pomo-start' : mode == 'Pomodoro', 'long-start':mode=='Long Break','short-start':mode=='Short Break'}">
       How to use it?
     </span>
     <span class="answer">
       <ol>
         <li>
-          <span class="stress">Decide</span> on the task to be done.
+          <span class="stress"
+            [ngClass]="{'pomo-start' : mode == 'Pomodoro', 'long-start':mode=='Long Break','short-start':mode=='Short Break'}">Decide</span>
+          on the task to be done.
         </li>
         <li>
-          <span class="stress">Set </span> the pomodoro timer (traditionally to 25 minutes).
+          <span class="stress"
+            [ngClass]="{'pomo-start' : mode == 'Pomodoro', 'long-start':mode=='Long Break','short-start':mode=='Short Break'}">Set
+          </span> the pomodoro timer (traditionally to 25 minutes).
         </li>
         <li>
-          <span class="stress"> Work </span>on the task.
+          <span class="stress"
+            [ngClass]="{'pomo-start' : mode == 'Pomodoro', 'long-start':mode=='Long Break','short-start':mode=='Short Break'}">
+            Work </span>on the task.
         </li>
         <li>
-          <span class="stress"> End work </span> the timer rings and put a checkmark on a piece of paper.
+          <span class="stress"
+            [ngClass]="{'pomo-start' : mode == 'Pomodoro', 'long-start':mode=='Long Break','short-start':mode=='Short Break'}">
+            End work </span> the timer rings and put a checkmark on a piece of paper.
         </li>
         <li>
-          If you have fewer than four checkmarks, <span class="stress"> take a short break </span> (3–5 minutes) and then return
-            to step 2; otherwise
-            continue to step 6.
+          If you have fewer than four checkmarks, <span class="stress"
+            [ngClass]="{'pomo-start' : mode == 'Pomodoro', 'long-start':mode=='Long Break','short-start':mode=='Short Break'}">
+            take a short break </span> (3–5 minutes) and
+          then return
+          to step 2; otherwise
+          continue to step 6.
         </li>
         <li>
-          After four pomodoros, <span class="stress"> take a longer break </span> (15–30 minutes), reset your checkmark
+          After four pomodoros, <span class="stress"
+            [ngClass]="{'pomo-start' : mode == 'Pomodoro', 'long-start':mode=='Long Break','short-start':mode=='Short Break'}">
+            take a longer break </span> (15–30 minutes), reset your checkmark
           count to zero, then go to step
           1.
         </li>
       </ol>
     </span>
     <div class="help-img-container">
-      <img class="help-img" src='/assets/pomo.png'>
+      <!-- <img class="help-img" src='/assets/pomo.png'> -->
     </div>
 
   </div>
