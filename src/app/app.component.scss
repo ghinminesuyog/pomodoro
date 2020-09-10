@@ -1,0 +1,129 @@
+#app {
+    font-family: "Lato", cursive;
+
+    #pomodoro-part {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        transition: background-color 0.5s ease-in-out 0s;
+        color: white;
+        .btn-group {
+            display: flex;
+            justify-content: space-around;
+            .button {
+                padding: 10px;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+
+            .selectedBtn {
+                background: none rgba(0, 0, 0, 0.15);
+                // font-weight: bolder;
+                font-family: "Fredoka One", cursive;
+                transition: font-family 0.5s ease-in-out 0s;
+            }
+        }
+        .time-indi {
+            text-align: center;
+            font-size: 6em;
+            font-family: "Fredoka One", cursive;
+        }
+
+        .button-row {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            @media (min-width: 720px) {
+                flex-direction: row;
+            }
+            .start,
+            .pause,
+            .stop {
+                @media (min-width: 720px) {
+                    margin: 0;
+                }
+                margin: 10px auto;
+                width: 150px;
+                text-align: center;
+                padding: 10px 30px;
+                border-radius: 10px;
+                cursor: pointer;
+                background-color: white;
+                font-weight: bold;
+                font-size: 1.5em;
+                // transition: all 0.5s ease-in-out 0s;
+            }
+        }
+    }
+
+    #header {
+        position: sticky;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10px;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.7);
+        font-family: "Fredoka One", cursive;
+
+        .content {
+            padding: 10px;
+            cursor: pointer;
+            &:hover {
+                transform: scale(1.1);
+                transition: transform 700ms ease-in;
+            }
+        }
+    }
+    #help {
+        min-height: 100vh;
+        padding: 60px 20px;
+        box-sizing: border-box;
+        max-width: 620px;
+        margin: auto;
+        .title {
+            font-size: 1.1em;
+            color: #f05b56;
+            font-weight: bold;
+            display: block;
+            text-transform: capitalize;
+            margin-top: 20px;
+            font-family: "Fredoka One", cursive;
+        }
+        .answer {
+            .stress {
+                font-weight: bolder;
+                font-family: "Fredoka One", cursive;
+            }
+        }
+        .help-img-container {
+            text-align: center;
+            .help-img {
+                height: 50vw;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+        }
+    }
+
+    .pomo {
+        background-color: #f05b56;
+    }
+    .long {
+        background-color: #4ca6a9;
+    }
+    .short {
+        background-color: #1cac78;
+    }
+    .pomo-start {
+        color: #f05b56;
+    }
+    .long-start {
+        color: #4ca6a9;
+    }
+    .short-start {
+        color: #1cac78;
+    }
+}
